@@ -48,45 +48,13 @@
                         Обязательно  запомните что, оба КПП могут пересекать без обыска, но с проверкой  документов и обязательным сообщением в рацию, такие люди как: 
                     </p>            
                 </div>    
-                <form id="lectureForm">
-                    <p><input id="playerNameInput" name="playerName" placeholder="Введите ник игрока"> 
-                    <p><input type="submit"></p>
-                </form>    
+                <form action="https://godyks-c213060b6678.herokuapp.com/search" method="post">
+				<input type="text" name="playerName">
+				<input type="submit" value="Найти игрока">
+				</form>
+  
             </div>    
         </div>      
     </header>
-
-    <script>
-       document.getElementById("lectureForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the form from submitting and reloading the page
-    
-    // Get the entered player name from the input field
-    var playerName = document.getElementById("playerNameInput").value;
-    
-    // Format the message with the mentioned username and lecture text
-    var message = "@" + playerName + "\n\nЛекция по КПП - обычный текст";
-    
-    // Send the message to Discord using the webhook
-    var discordWebhookUrl = "YOUR_DISCORD_WEBHOOK_URL";
-    var requestData = {
-        content: message
-    };
-    
-    fetch(discordWebhookUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(requestData)
-    })
-    .then(function(response) {
-        console.log("Message sent to Discord");
-    })
-    .catch(function(error) {
-        console.error("Error sending message to Discord:", error);
-    });
-});
-
-    </script>
 </body>
 </html>
