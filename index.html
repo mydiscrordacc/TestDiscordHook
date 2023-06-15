@@ -57,35 +57,36 @@
     </header>
 
     <script>
-        document.getElementById("lectureForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent the form from submitting and reloading the page
-            
-            // Get the entered player name from the input field
-            var playerName = document.getElementById("playerNameInput").value;
-            
-            // Format the message with the mentioned username
-            var message = "@" + playerName;
-            
-            // Send the message to Discord using the webhook
-            var discordWebhookUrl = "YOUR_DISCORD_WEBHOOK_URL";
-            var requestData = {
-                content: message
-            };
-            
-            fetch(discordWebhookUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(requestData)
-            })
-            .then(function(response) {
-                console.log("Message sent to Discord");
-            })
-            .catch(function(error) {
-                console.error("Error sending message to Discord:", error);
-            });
-        });
+       document.getElementById("lectureForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting and reloading the page
+    
+    // Get the entered player name from the input field
+    var playerName = document.getElementById("playerNameInput").value;
+    
+    // Format the message with the mentioned username and lecture text
+    var message = "@" + playerName + "\n\nЛекция по КПП - обычный текст";
+    
+    // Send the message to Discord using the webhook
+    var discordWebhookUrl = "YOUR_DISCORD_WEBHOOK_URL";
+    var requestData = {
+        content: message
+    };
+    
+    fetch(discordWebhookUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestData)
+    })
+    .then(function(response) {
+        console.log("Message sent to Discord");
+    })
+    .catch(function(error) {
+        console.error("Error sending message to Discord:", error);
+    });
+});
+
     </script>
 </body>
 </html>
