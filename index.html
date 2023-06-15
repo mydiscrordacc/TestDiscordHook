@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,700&display=swap" rel="stylesheet">
-
+    
 </head>
 <body>
     <header class="header" id="header">
@@ -21,23 +21,23 @@
                         <a href="#" class="nav__link">
                             Руководство МА
                         </a>
-                    </div>
+                    </div>    
                     <a href="#" class="user">
                         [5][inst.MA Alex Alexsa]
-                    </a>
-                </div>
-            </div>
-        </div>
+                    </a>    
+                </div>                       
+            </div>                    
+        </div> 
         <div class="header__back">
             <div class="container">
                 <div class="header__back_button">
                     <h1 class="lectures">
-                        Провести лекцию
-                    </h1>
+                        Провести лекцию 
+                    </h1>    
                     <h2>
                         Постовая служба и КПП
-                    </h2>
-                    <p>
+                    </h2>   
+                    <p>                     
                         Fort Zancudo - это охраняемый режимный объект,  вооруженных сил США, поэтому на территории может находится лишь ограниченный круг лиц. Для контроля за их пропуском и выпуском были основаны два контрольно-пропускных пункта: КПП-1 и КПП-2.
 
                         КПП-1 - дополнительное КПП, которое находится в самом конце форта прямо за парковкой для всех военнослужащих.
@@ -45,40 +45,33 @@
 
                         Однако между КПП-1 и КПП-2 есть важное функциональное отличие. Если же КПП-2 могут пересекать абсолютно все люди, имеющие на это уважительную причину и допуск на территорию форта, то КПП-1 предназначено только для Генералитета, а также первых лиц штата.
 
-                        Обязательно  запомните что, оба КПП могут пересекать без обыска, но с проверкой  документов и обязательным сообщением в рацию, такие люди как:
-                    </p>
-                </div>
+                        Обязательно  запомните что, оба КПП могут пересекать без обыска, но с проверкой  документов и обязательным сообщением в рацию, такие люди как: 
+                    </p>            
+                </div>    
                 <form id="lectureForm">
-                    <p><input id="playerNameInput" name="playerName" placeholder="Введите ник игрока">
+                    <p><input id="playerNameInput" name="playerName" placeholder="Введите ник игрока"> 
                     <p><input type="submit"></p>
-                </form>
-            </div>
-        </div>
+                </form>    
+            </div>    
+        </div>      
     </header>
 
     <script>
         document.getElementById("lectureForm").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent the form from submitting and reloading the page
-
+            
             // Get the entered player name from the input field
             var playerName = document.getElementById("playerNameInput").value;
-
-            // Define the message to be displayed based on the player name
-            var message;
-            if (playerName === "Cvincie Martinez") {
-                message = "@[6][Inst.MA] Cvincie Martinez - это тег меня в дискорде";
-            } else if (playerName === "Djenndik California") {
-                message = "@[2][A] Djenndik California - это тег другого человека в дискорде";
-            } else {
-                message = "Лекция по КПП - обычный текст";
-            }
-
+            
+            // Format the message with the mentioned username
+            var message = "@" + playerName;
+            
             // Send the message to Discord using the webhook
-            var discordWebhookUrl = "https://discord.com/api/webhooks/1118673768710144033/RwC_fIX-By29CheDDag2J0tkaZErmO3Bb6rUnUsV-F4K5UJTCWlNTZ0ixgpKr70AA41q";
+            var discordWebhookUrl = "YOUR_DISCORD_WEBHOOK_URL";
             var requestData = {
                 content: message
             };
-
+            
             fetch(discordWebhookUrl, {
                 method: "POST",
                 headers: {
