@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="header_top">
+            <div class="container">
+                <div class="nav">
+                    <div class="nav__left">
+                        <a href="#" class="nav__link">
+                            Вернуться на главную
+                        </a>
+                        <a href="#" class="nav__link">
+                            Руководство МА
+                        </a>
+                    </div>
+                    <a href="#" class="user">
+                        [5][inst.MA Alex Alexsa]
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header__back">
+            <div class="container">
+                <div class="header__back_button">
+                    <h1 class="lectures">
+                        Провести лекцию
+                    </h1>
+                    <h2>
+                        Постовая служба и КПП
+                    </h2>
+                    <p>
+                        Fort Zancudo - это охраняемый режимный объект,  вооруженных сил США, поэтому на территории может находится лишь ограниченный круг лиц. Для контроля за их пропуском и выпуском были основаны два контрольно-пропускных пункта: КПП-1 и КПП-2.
+
+                        КПП-1 - дополнительное КПП, которое находится в самом конце форта прямо за парковкой для всех военнослужащих.
+                        КПП-2 - основное КПП, дислоцирующееся прямо возле HTP(автопарка), то есть рядом с парковкой военной техники.
+
+                        Однако между КПП-1 и КПП-2 есть важное функциональное отличие. Если же КПП-2 могут пересекать абсолютно все люди, имеющие на это уважительную причину и допуск на территорию форта, то КПП-1 предназначено только для Генералитета, а также первых лиц штата.
+
+                        Обязательно  запомните что, оба КПП могут пересекать без обыска, но с проверкой  документов и обязательным сообщением в рацию, такие люди как:
+                    </p>
+                </div>
+                <form id="discordForm" action="#">
+                    <p><input name="login" id="loginInput"></p>
+                    <p><input type="submit"></p>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#discordForm').submit(function(event) {
+                event.preventDefault(); // Предотвратите отправку формы
+
+                var webhookUrl = "https://discord.com/api/webhooks/1118673768710144033/RwC_fIX-By29CheDDag2J0tkaZErmO3Bb6rUnUsV-F4K5UJTCWlNTZ0ixgpKr70AA41q"; // Замените на фактический URL вашего Discord Webhook
+                var text = $('#loginInput').val(); // Получите значение текста из формы на вашем сайте
+
+                var data = {
+                    "content": text
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: webhookUrl,
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+                    success: function(response) {
+                        // Обработайте успешный ответ
+                        console.log("Сообщение успешно отправлено в Discord.");
+                    },
+                    error: function(xhr, status, error) {
+                        // Обработайте ошибку
+                        console.error("Произошла ошибка при отправке сообщения в Discord.");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
